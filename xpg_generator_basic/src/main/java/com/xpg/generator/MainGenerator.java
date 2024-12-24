@@ -12,6 +12,7 @@ public class MainGenerator {
     public static void doGenerate (Object model) throws IOException {
 
         String projectPath = System.getProperty("user.dir");
+        System.out.println("user.dir"+projectPath);
         File parentFile = new File(projectPath).getParentFile();
 
         String inputPath = new File(parentFile,"xpg_generator_demo_projects/acm-template").getAbsolutePath();
