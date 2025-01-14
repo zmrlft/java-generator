@@ -27,6 +27,7 @@ public class GenerateCommand implements Callable<Integer> {
         //BeanUtil.copyProperties(this, mainTemplateConfig);
         System.out.println("配置信息："+mainTemplateConfig);
         MainGenerator.doGenerate(mainTemplateConfig);
+
         return 0;
 
     }
