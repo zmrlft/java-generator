@@ -3,11 +3,12 @@
   "description": "ACM 示例模板生成器",
   "basePackage": "com.xpg",
   "version": "1.0",
-  "author": "xpg",
+  "author": "xpglaodi",
   "createTime": "2023-11-22",
   "fileConfig": {
-    "inputRootPath": "E:/mycode/xpg_generator/xpg_generator_demo_projects/acm-template-pro",
+    "inputRootPath": "./source/acm-template-pro",
     "outputRootPath": "E:/mycode/xpg_generator/xpg_generator_maker/generated/acm-template-pro-generator",
+    "sourceRootPath": "E:/mycode/xpg_generator/xpg_generator_demo_projects/acm-template-pro",
     "type": "dir",
     "files": [
       {
