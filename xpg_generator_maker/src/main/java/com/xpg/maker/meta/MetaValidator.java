@@ -12,6 +12,8 @@ import java.io.File;
 import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * 元信息校验
@@ -38,6 +40,19 @@ public class MetaValidator {
             return;
         }
         for (Meta.ModelConfig.ModelInfo modelInfo : modelInfoList ){
+
+            // groupKey is not null,no valid
+            String groupKey = modelInfo.getGroupKey();
+            if (StrUtil.isNotEmpty(groupKey)) {
+                // generate Intermediate parameter
+                // todo 这里无法理解
+                List<Meta.ModelConfig.ModelInfo> subModelInfoList = modelInfo.getModels();
+                String allArgsStr = modelInfo.getModels().stream()
+                        .map(subModelInfo -> String.format("\"--%s\"", subModelInfo.getFieldName()))
+                        .collect(Collectors.joining(", "));
+                modelInfo.setAllArgsStr(allArgsStr);
+                continue;
+            }
             String modelInfoType = StrUtil.blankToDefault(modelInfo.getType(), ModelTypeEnum.STRING.getValue());
             modelInfo.setType(modelInfoType);
         }
@@ -87,7 +102,9 @@ public class MetaValidator {
         for (Meta.FileConfig.FileInfo fileInfo : fileInfoList){
             String type = fileInfo.getType();
             // type is group , no valid
-            // TODO
+            if (Objects.equals(type, FileTypeEnum.GROUP.getValue())) {
+                continue;
+            }
 
             // inputPath : required fields
             String inputPath = fileInfo.getInputPath();

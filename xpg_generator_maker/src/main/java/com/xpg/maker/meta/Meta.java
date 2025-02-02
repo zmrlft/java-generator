@@ -54,7 +54,7 @@ public class Meta {
             private String type;
             private String description;
             private Object defaultValue;
-            private String abbr;
+//            private String abbr;
             private String groupKey;
             private String groupName;
             private List<ModelInfo> models;
