@@ -1,6 +1,6 @@
 package ${basePackage}.generator;
 
-import com.xpg.model.DataModel;
+import com.yupi.model.DataModel;
 import freemarker.template.TemplateException;
 
 import java.io.File;

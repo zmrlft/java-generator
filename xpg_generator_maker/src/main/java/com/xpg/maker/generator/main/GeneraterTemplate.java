@@ -182,7 +182,7 @@ public  abstract class GeneraterTemplate {
     protected String copySource(Meta meta, String outputPath) {
         // copy original template file
         String sourceRootPath = meta.getFileConfig().getSourceRootPath();
-        String sourceCopyDestPath = outputPath + File.separator + "./source";
+        String sourceCopyDestPath = outputPath + File.separator + ".source";//之前是./source，不小心写错了
         FileUtil.copy(sourceRootPath,sourceCopyDestPath,false);
         return sourceCopyDestPath;
     }
